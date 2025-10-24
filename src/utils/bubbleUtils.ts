@@ -14,8 +14,9 @@ export function getNonOverlappingPosition(
     const top = Math.random() * (containerHeight - size - padding * 2);
 
     const overlaps = bubbles.some((b) => {
-      const dx = left - parseFloat(b.left);
-      const dy = top - parseFloat(b.top);
+     const dx = left - parseFloat(b.left || "0");
+const dy = top - parseFloat(b.top || "0");
+
       const distance = Math.sqrt(dx * dx + dy * dy);
       return distance < ((size + (b.size || 100)) / 2 + padding);
     });
