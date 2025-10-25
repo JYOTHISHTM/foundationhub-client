@@ -1,7 +1,7 @@
 // src/services/note.ts
 import { Note, Block } from "@/types/notes";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = process.env.BASE_URL
 
 export async function getNote(slug: string): Promise<Note> {
   const res = await fetch(`${BASE_URL}/notes/${slug}`, { cache: "no-store" });
